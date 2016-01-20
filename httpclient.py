@@ -24,13 +24,16 @@ import re
 # you may use urllib to encode data appropriately
 import urllib
 
+
 def help():
     print "httpclient.py [GET/POST] [URL]\n"
+
 
 class HTTPRequest(object):
     def __init__(self, code=200, body=""):
         self.code = code
         self.body = body
+
 
 class HTTPClient(object):
     #def get_host_port(self,url):
@@ -75,6 +78,7 @@ class HTTPClient(object):
             return self.POST( url, args )
         else:
             return self.GET( url, args )
+
 
 if __name__ == "__main__":
     client = HTTPClient()
