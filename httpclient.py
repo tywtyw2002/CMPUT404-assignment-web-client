@@ -25,21 +25,46 @@ import re
 import urllib
 
 
+URL_RULE = "^http://(?P<HOST>[A-Za-z0-9\-\.]+)(?P<PORT>:[0-9]+)?(?P<PATH>.*)$"
+URL_MATCH_RE = re.compile(URL_RULE, re.I)
+
+
 def help():
     print "httpclient.py [GET/POST] [URL]\n"
 
 
-class HTTPRequest(object):
+class HTTPResponse(object):
     def __init__(self, code=200, body=""):
         self.code = code
         self.body = body
 
 
+class HTTPRequest(object):
+
+    def __init__(self, url):
+        self.url = url
+        self.parse_url
+
+    def parse_url(self):
+        url_result = URL_MATCH_RE.search(self.url)
+
+        if not url_result:
+            # cannot find host name.
+            pass
+
+        g_dict = host_result.groupdict()
+        self.host = g_dict.get('HOST')
+        self.port = g_dict.get('PORT', 80)
+        self.path = g_dict.get('PATH', '/')
+
+
 class HTTPClient(object):
-    #def get_host_port(self,url):
+    def get_host_port(self, url):
+
 
     def connect(self, host, port):
-        # use sockets!
+        try:
+            self.socket =
         return None
 
     def get_code(self, data):
@@ -66,12 +91,12 @@ class HTTPClient(object):
     def GET(self, url, args=None):
         code = 500
         body = ""
-        return HTTPRequest(code, body)
+        return HTTPResponse(code, body)
 
     def POST(self, url, args=None):
         code = 500
         body = ""
-        return HTTPRequest(code, body)
+        return HTTPResponse(code, body)
 
     def command(self, url, command="GET", args=None):
         if (command == "POST"):
