@@ -31,7 +31,7 @@
    - [ ] Implement basic HTTP POST
    - [ ] The httpclient can pass all the tests in freetests.py
    - [ ] The webserver can pass all the tests in not-free-tests.py
-     (you don't have this one!)
+     (you don't have this one! it can change -- but it will be fair to the user stories/requirements)
    - [ ] HTTP POST can post vars
    - [ ] HTTP POST handles at least Content-Type:
      application/x-www-form-urlencoded
@@ -76,5 +76,6 @@
      coding path names etc.).
 
 ** Marking
-   - 5 marks for passing all of the tests except testInternetGets
-   - 2 marks for passing testInternetGets
+   - 4 marks for passing all of the tests except testInternetGets
+   - 1 marks for passing testInternetGets
+   - 2 mark for passing not-free-tests.py
